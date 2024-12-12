@@ -1,23 +1,30 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function Weather() {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
 
-  const API_KEY = 'YOUR_OPENWEATHER_API_KEY';
+  const API_KEY = "bc09cc6af7d66fff9e4388f502906230";
 
-  const fetchWeather = async () => {
-    try {
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
-      setWeather(response.data);
-      setError(null);
-    } catch (err) {
-      setError('City not found');
-      setWeather(null);
+  useEffect(() => {
+    if (city) {
+      const fetchWeather = async () => {
+        try {
+          const response = await axios.get(
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+          );
+          setWeather(response.data);
+          setError(null);
+        } catch (err) {
+          setError("City not found");
+          setWeather(null);
+        }
+      };
+      fetchWeather();
     }
-  };
+  }, [city]); 
 
   return (
     <div>
@@ -28,7 +35,6 @@ function Weather() {
         onChange={(e) => setCity(e.target.value)}
         placeholder="Enter city"
       />
-      <button onClick={fetchWeather}>Get Weather</button>
       {error && <p>{error}</p>}
       {weather && (
         <div>
