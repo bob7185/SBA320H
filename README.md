@@ -1,6 +1,6 @@
 # Weather App
 
-A simple React-based weather application that allows users to search for current weather and forecast  for the next 15 hours for cities in the United States. The app uses OpenWeather's API for fetching weather and forecast data.
+A simple React-based weather application that allows users to search for current weather and forecast  for the next 15 hours for cities in the United States. The app uses OpenWeather's API for fetching weather and forecast data. The app automatically picks a user location and shows the corresponding data for their location.
 
 ## Features
 
