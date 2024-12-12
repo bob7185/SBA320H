@@ -13,9 +13,10 @@ function Weather() {
       const fetchWeather = async () => {
         try {
           const response = await axios.get(
-            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`
           );
           setWeather(response.data);
+          console.log(response.data)
           setError(null);
         } catch (err) {
           setError("City not found");
@@ -39,7 +40,7 @@ function Weather() {
       {weather && (
         <div>
           <h2>{weather.name}</h2>
-          <p>Temperature: {weather.main.temp}°C</p>
+          <p>Temperature: {weather.main.temp}°F</p>
           <p>Humidity: {weather.main.humidity}%</p>
           <p>Wind Speed: {weather.wind.speed} m/s</p>
           <p>Description: {weather.weather[0].description}</p>
