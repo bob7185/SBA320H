@@ -22,8 +22,8 @@ A simple React-based weather application that allows users to search for current
    ```bash
    git clone https://github.com/bob7185/SBA320H
 
-2. Run npm dev in a terminal open in the project folder
+2. Run npm dev in a terminal opened in the project folder
 
-3. Open your web browser and navigatye to http://localhost:5773
+3. Open your web browser and navigate to http://localhost:5773
 
 4. Enter city, Sate ex (Boston, Ma) and view weather data
